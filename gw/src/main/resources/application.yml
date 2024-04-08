@@ -13,10 +13,6 @@ spring:
           predicates:
             - Path=/api/bus/**
           filters:
-            - name: CircuitBreaker
-              args:
-                name: bus-service
-                fallbackUri: forward:/fallback/busServiceFallBack
             - name: RequestRateLimiter
               args:
                 redis-rate-limiter.replenishRate: 1
@@ -26,10 +22,6 @@ spring:
           predicates:
             - Path=/api/car/**
           filters:
-            - name: CircuitBreaker
-              args:
-                name: car-service
-                fallbackUri: forward:/fallback/carServiceFallBack
             - name: RequestRateLimiter
               args:
                 redis-rate-limiter.replenishRate: 1
@@ -39,10 +31,6 @@ spring:
           predicates:
             - Path=/api/travel/**
           filters:
-            - name: CircuitBreaker
-              args:
-                name: TRAVEL-SERVICE
-                fallbackUri: forward:/fallback/travelServiceFallBack
             - name: RequestRateLimiter
               args:
                 redis-rate-limiter.replenishRate: 1
