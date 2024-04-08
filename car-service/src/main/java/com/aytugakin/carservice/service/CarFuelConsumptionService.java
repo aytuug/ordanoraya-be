@@ -60,11 +60,11 @@ public class CarFuelConsumptionService {
         Optional<Fuel> fuel = fuelRepository.findByCityAndCounty(travelCarConsumptionRequest.city(), travelCarConsumptionRequest.county());
         Double price = null;
         if (fuel.isPresent()) {
-            if (Objects.nonNull(travelCarConsumptionRequest.fuelType())) {
+            if (Objects.nonNull(travelCarConsumptionRequest.fuelType()) && Objects.nonNull(travelCarConsumptionRequest.carConsumption())) {
                 FuelCalculator calculator = fuelCalculatorFactory.createCalculator(travelCarConsumptionRequest.fuelType());
                 price = calculator.calculatePrice(fuel.get(), travelCarConsumptionRequest.distance(), travelCarConsumptionRequest.carConsumption());
             } else {
-                throw new ResourceNotFoundException("Invalid fuel type");
+                throw new ResourceNotFoundException("Invalid fuel type Or Car Consumption");
             }
             return TravelCarConsumptionResponse.builder().price(price).build();
         } else {
