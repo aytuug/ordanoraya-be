@@ -129,3 +129,7 @@ Utravel-service/src/main/java/com/aytugakin/travelservice/external/model/FuelTyp
 Vtravel-service/src/main/java/com/aytugakin/travelservice/TravelServiceApplication.java,f\f\ff19e1adb0bcec8a97c50d1dd072cd736b271ccb
 ‘
 atravel-service/src/main/java/com/aytugakin/travelservice/exception/ResourceNotFoundException.java,b\d\bde3448ba594c8fd1a7ec58de755fd4f30ea6e26
+s
+Cgateway/src/main/java/com/aytugakin/gateway/GatewayApplication.java,f\9\f95b07b8fc43914c3ac717a436a57c7b49058a4c
+~
+Ngateway/src/main/java/com/aytugakin/gateway/controller/FallbackController.java,e\9\e92ab974df0770c397e6861a89a962864cc140ef

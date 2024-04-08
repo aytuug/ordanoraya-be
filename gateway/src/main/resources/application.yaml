@@ -1,0 +1,49 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: api-gw
+  config:
+    import: configserver:http://localhost:9296
+  cloud:
+    gateway:
+      routes:
+        - id : car-service
+          uri: lb://car-service
+          predicates:
+            - Path=/api/car/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: car-service
+                fallbackuri: forward:/carServiceFallBack
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 1
+                redis-rate-limiter.burstCapacity: 1
+        - id: bus-service
+          uri: lb://bus-service
+          predicates:
+            - Path=/api/bus/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: bus-service
+                fallbackuri: forward:/busServiceFallBack
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 1
+                redis-rate-limiter.burstCapacity: 1
+        - id: travel-service
+          uri: lb://travel-service
+          predicates:
+            - Path=/api/travel/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: travel-service
+                fallbackuri: forward:/travelServiceFallBack
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 1
+                redis-rate-limiter.burstCapacity: 1
