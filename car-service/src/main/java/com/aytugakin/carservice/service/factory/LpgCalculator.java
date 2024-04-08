@@ -1,0 +1,10 @@
+package com.aytugakin.carservice.service.factory;
+
+import com.aytugakin.carservice.entity.Fuel;
+
+public class LpgCalculator implements FuelCalculator{
+    @Override
+    public Double calculatePrice(Fuel fuel, double distance) {
+        return fuel.getLpgPrice() * distance;
+    }
+}

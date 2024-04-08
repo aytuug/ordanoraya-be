@@ -5,8 +5,9 @@ import lombok.Builder;
 
 @Builder
 public record TravelCarConsumptionRequest(
-        String fuelConsumption,
-        String distance,
+        Double distance,
+        String city,
+        String county,
         FuelType fuelType
 ) {
 }

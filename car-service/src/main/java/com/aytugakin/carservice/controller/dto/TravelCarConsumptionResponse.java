@@ -1,6 +1,9 @@
 package com.aytugakin.carservice.controller.dto;
 
+import lombok.Builder;
+
+@Builder
 public record TravelCarConsumptionResponse(
-        String price
+        Double price
 ) {
 }
