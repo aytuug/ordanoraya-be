@@ -10,7 +10,15 @@
         <option value="$PROJECT_DIR$/config-server/pom.xml" />
         <option value="$PROJECT_DIR$/travel-service/pom.xml" />
         <option value="$PROJECT_DIR$/service-registry/pom.xml" />
+        <option value="$PROJECT_DIR$/api-gw/pom.xml" />
+        <option value="$PROJECT_DIR$/gw/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/api-gw/pom.xml" />
+        <option value="$PROJECT_DIR$/gateway/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="openjdk-21" project-jdk-type="JavaSDK">

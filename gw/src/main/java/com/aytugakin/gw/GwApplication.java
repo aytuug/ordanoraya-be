@@ -1,4 +1,4 @@
-package com.aytugakin.gateway;
+package com.aytugakin.gw;
 
 import io.github.resilience4j.circuitbreaker.CircuitBreakerConfig;
 import org.springframework.boot.SpringApplication;
@@ -11,10 +11,10 @@ import org.springframework.context.annotation.Bean;
 import reactor.core.publisher.Mono;
 
 @SpringBootApplication
-public class GatewayApplication {
-
+public class GwApplication {
+	// docker run --name rdb -p 6379:6379 redis
 	public static void main(String[] args) {
-		SpringApplication.run(GatewayApplication.class, args);
+		SpringApplication.run(GwApplication.class, args);
 	}
 
 	@Bean
@@ -31,5 +31,4 @@ public class GatewayApplication {
 						).build()
 		);
 	}
-
 }

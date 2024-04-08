@@ -8,40 +8,40 @@ spring:
   cloud:
     gateway:
       routes:
-        - id : car-service
-          uri: lb://car-service
-          predicates:
-            - Path=/api/car/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: car-service
-                fallbackuri: forward:/carServiceFallBack
-            - name: RequestRateLimiter
-              args:
-                redis-rate-limiter.replenishRate: 1
-                redis-rate-limiter.burstCapacity: 1
-        - id: bus-service
-          uri: lb://bus-service
+        - id : BUS-SERVICE
+          uri: lb://BUS-SERVICE
           predicates:
             - Path=/api/bus/**
           filters:
             - name: CircuitBreaker
               args:
-                name: bus-service
+                name: BUS-SERVICE
                 fallbackuri: forward:/busServiceFallBack
             - name: RequestRateLimiter
               args:
                 redis-rate-limiter.replenishRate: 1
                 redis-rate-limiter.burstCapacity: 1
-        - id: travel-service
-          uri: lb://travel-service
+        - id: CAR-SERVICE
+          uri: lb://CAR-SERVICE
+          predicates:
+            - Path=/api/car/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: CAR-SERVICE
+                fallbackuri: forward:/carServiceFallBack
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 1
+                redis-rate-limiter.burstCapacity: 1
+        - id: TRAVEL-SERVICE
+          uri: lb://TRAVEL-SERVICE
           predicates:
             - Path=/api/travel/**
           filters:
             - name: CircuitBreaker
               args:
-                name: travel-service
+                name: TRAVEL-SERVICE
                 fallbackuri: forward:/travelServiceFallBack
             - name: RequestRateLimiter
               args:
