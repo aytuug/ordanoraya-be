@@ -4,7 +4,7 @@ import com.aytugakin.carservice.entity.Fuel;
 
 public class LpgCalculator implements FuelCalculator{
     @Override
-    public Double calculatePrice(Fuel fuel, double distance) {
-        return fuel.getLpgPrice() * distance;
+    public Double calculatePrice(Fuel fuel, double distance, double carConsumption) {
+        return ((carConsumption / 100) * distance) * fuel.getLpgPrice();
     }
 }

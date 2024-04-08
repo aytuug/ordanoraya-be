@@ -62,7 +62,7 @@ public class CarFuelConsumptionService {
         if (fuel.isPresent()) {
             if (Objects.nonNull(travelCarConsumptionRequest.fuelType())) {
                 FuelCalculator calculator = fuelCalculatorFactory.createCalculator(travelCarConsumptionRequest.fuelType());
-                price = calculator.calculatePrice(fuel.get(), travelCarConsumptionRequest.distance());
+                price = calculator.calculatePrice(fuel.get(), travelCarConsumptionRequest.distance(), travelCarConsumptionRequest.carConsumption());
             } else {
                 throw new ResourceNotFoundException("Invalid fuel type");
             }
