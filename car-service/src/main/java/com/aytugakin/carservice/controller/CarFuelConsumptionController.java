@@ -20,7 +20,7 @@ public class CarFuelConsumptionController {
         return ResponseEntity.ok(carFuelConsumptionService.scrapingFuelData(addFuelRequest));
     }
 
-    @GetMapping
+    @PostMapping("/getCalculateCarConsumption")
     public ResponseEntity<TravelCarConsumptionResponse> getCalculateCarConsumption(@RequestBody TravelCarConsumptionRequest travelCarConsumptionRequest) {
         return ResponseEntity.ok(carFuelConsumptionService.getCalculateCarConsumption(travelCarConsumptionRequest));
     }

@@ -20,7 +20,7 @@ public class BusController {
         return ResponseEntity.ok(busService.scrapingBusData(addBusRequest));
     }
 
-    @GetMapping("/getCheapestBus")
+    @PostMapping("/getCheapestBus")
     public ResponseEntity<TravelBusResponse> getCheapestBus(@RequestBody TravelBusRequest travelBusRequest) {
         return ResponseEntity.ok(busService.getCheapestBus(travelBusRequest));
     }
