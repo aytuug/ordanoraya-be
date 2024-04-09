@@ -7,6 +7,8 @@ public record TravelCarConsumptionRequest(
         Double distance,
         String city,
         String county,
+        String cityCode,
+        String countyCode,
         Double carConsumption,
         FuelType fuelType
 ) {

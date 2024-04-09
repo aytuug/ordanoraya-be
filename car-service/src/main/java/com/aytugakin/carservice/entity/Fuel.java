@@ -18,6 +18,8 @@ public class Fuel {
     private Long id;
     private String city;
     private String county;
+    private String cityCode;
+    private String countyCode;
     private Double gasolinePrice;
     private Double dieselPrice;
     private Double lpgPrice;

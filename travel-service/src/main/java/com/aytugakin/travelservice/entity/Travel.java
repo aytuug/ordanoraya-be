@@ -18,8 +18,11 @@ public class Travel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String originCity;
+    private String originCityCode;
     private String originCounty;
+    private String originCountyCode;
     private String destination;
+    private String destinationCode;
     private Double distance;
     private Double carConsumption;
 }

@@ -31,8 +31,8 @@ public class CarFuelConsumptionService {
 
         for (FuelDto fuelDto : addFuelRequest.fuelDtoList()) {
 
-            Optional<Fuel> optionalFuel = fuelRepository.findByCityAndCounty(
-                    fuelDto.city(), fuelDto.county());
+            Optional<Fuel> optionalFuel = fuelRepository.findByCityCodeAndCountyCode(
+                    fuelDto.cityCode(), fuelDto.countyCode());
 
             if (optionalFuel.isPresent()) {
                 Fuel existingFuelData = optionalFuel.get();
@@ -44,6 +44,8 @@ public class CarFuelConsumptionService {
                 Fuel newFuelData = Fuel.builder()
                         .city(fuelDto.city())
                         .county(fuelDto.county())
+                        .cityCode(fuelDto.cityCode())
+                        .countyCode(fuelDto.countyCode())
                         .gasolinePrice(fuelDto.gasolinePrice())
                         .dieselPrice(fuelDto.dieselPrice())
                         .lpgPrice(fuelDto.lpgPrice())
@@ -57,7 +59,7 @@ public class CarFuelConsumptionService {
     }
 
     public TravelCarConsumptionResponse getCalculateCarConsumption(TravelCarConsumptionRequest travelCarConsumptionRequest) {
-        Optional<Fuel> fuel = fuelRepository.findByCityAndCounty(travelCarConsumptionRequest.city(), travelCarConsumptionRequest.county());
+        Optional<Fuel> fuel = fuelRepository.findByCityCodeAndCountyCode(travelCarConsumptionRequest.cityCode(), travelCarConsumptionRequest.countyCode());
         Double price = null;
         if (fuel.isPresent()) {
             if (Objects.nonNull(travelCarConsumptionRequest.fuelType()) && Objects.nonNull(travelCarConsumptionRequest.carConsumption())) {

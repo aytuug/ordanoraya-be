@@ -4,7 +4,7 @@ import lombok.Builder;
 
 @Builder
 public record TravelBusRequest(
-        String destination,
-        String origin
+        String destinationCode,
+        String originCode
 ) {
 }

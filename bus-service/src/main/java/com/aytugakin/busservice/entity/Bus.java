@@ -18,7 +18,9 @@ public class Bus {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String destination;
+    private String destinationCode;
     private String origin;
+    private String originCode;
     private String company;
     private Double price;
 }

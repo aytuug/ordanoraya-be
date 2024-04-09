@@ -27,14 +27,16 @@ public class TravelService {
     public TravelResponse checkTravel(TravelRequest travelRequest) {
 
         TravelBusResponse travelBusResponse = busService.getCheapestBus(TravelBusRequest.builder()
-                .origin(travelRequest.originCity())
-                .destination(travelRequest.destination()).build()).getBody();
+                .originCode(travelRequest.originCityCode())
+                .destinationCode(travelRequest.destinationCode()).build()).getBody();
 
         TravelCarConsumptionResponse travelCarConsumptionResponse = carService.getCalculateCarConsumption(TravelCarConsumptionRequest.builder()
                         .carConsumption(travelRequest.fuelConsumption())
                         .distance(travelRequest.distance())
                         .city(travelRequest.originCity())
                         .county(travelRequest.originCounty())
+                        .cityCode(travelRequest.originCityCode())
+                        .countyCode(travelRequest.originCountyCode())
                         .fuelType(travelRequest.fuelType())
                 .build()).getBody();
 
@@ -43,8 +45,11 @@ public class TravelService {
                     .carConsumption(travelRequest.fuelConsumption())
                     .distance(travelRequest.distance())
                     .destination(travelRequest.destination())
+                    .destinationCode(travelRequest.destinationCode())
                     .originCounty(travelRequest.originCounty())
+                    .originCountyCode(travelRequest.originCountyCode())
                     .originCity(travelRequest.originCity())
+                    .originCityCode(travelRequest.originCityCode())
                     .build());
 
             return TravelResponse.builder()

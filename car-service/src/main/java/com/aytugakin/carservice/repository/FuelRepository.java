@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface FuelRepository extends JpaRepository<Fuel, Long> {
-    Optional<Fuel> findByCityAndCounty(String city, String county);
+    Optional<Fuel> findByCityCodeAndCountyCode(String cityCode, String countyCode);
 }

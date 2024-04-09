@@ -9,6 +9,6 @@ import java.util.Optional;
 
 @Repository
 public interface BusRepository extends JpaRepository<Bus, Integer> {
-    Optional<Bus> findByCompanyAndDestinationAndOrigin (String company, String destination, String origin);
-    Bus findFirstByDestinationAndOriginOrderByPriceAsc (String destination, String origin);
+    Optional<Bus> findByCompanyAndDestinationCodeAndOriginCode (String company, String destinationCode, String originCode);
+    Bus findFirstByDestinationCodeAndOriginCodeOrderByPriceAsc (String destinationCode, String originCode);
 }

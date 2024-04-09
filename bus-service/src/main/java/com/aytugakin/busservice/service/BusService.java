@@ -27,8 +27,8 @@ public class BusService {
         List<Bus> updatedBuses = new ArrayList<>();
 
         for (BusDto busDto : addBusRequest.busDtoList()) {
-            Optional<Bus> optionalBus = busRepository.findByCompanyAndDestinationAndOrigin(
-                    busDto.company(), busDto.destination(), busDto.origin());
+            Optional<Bus> optionalBus = busRepository.findByCompanyAndDestinationCodeAndOriginCode(
+                    busDto.company(), busDto.destinationCode(), busDto.originCode());
 
             if (optionalBus.isPresent()) {
                 Bus existingBus = optionalBus.get();
@@ -38,7 +38,9 @@ public class BusService {
                 Bus newBus = Bus.builder()
                         .company(busDto.company())
                         .destination(busDto.destination())
+                        .destinationCode(busDto.destinationCode())
                         .origin(busDto.origin())
+                        .originCode(busDto.originCode())
                         .price(busDto.price())
                         .build();
                 updatedBuses.add(busRepository.save(newBus));
@@ -50,8 +52,8 @@ public class BusService {
     }
 
     public TravelBusResponse getCheapestBus(TravelBusRequest travelBusRequest) {
-        Bus bus = busRepository.findFirstByDestinationAndOriginOrderByPriceAsc(travelBusRequest.destination()
-                , travelBusRequest.origin());
+        Bus bus = busRepository.findFirstByDestinationCodeAndOriginCodeOrderByPriceAsc(travelBusRequest.destinationCode()
+                , travelBusRequest.originCode());
         if (Objects.nonNull(bus)) {
             BusDto busDto = busMapper.convertToOptionalDto(bus);
             return busMapper.convertToTravelResponse(busDto);
