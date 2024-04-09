@@ -7,8 +7,6 @@ C
 car-service/pom.xml,6\2\6256a4f3129d371804d77c47558829b089b63c1f
 E
 config-server/pom.xml,a\2\a2f9618c8ad821b143a07a29a9805fcb0b2df470
-?
-gateway/pom.xml,4\b\4b316bc60d1cfae51045f6fc8e58a8ae31f03ff3
 H
 service-registry/pom.xml,c\8\c838103466e7455490125db06ce61e4ea301ce49
 F
@@ -43,8 +41,6 @@ Xbus-service/src/main/java/com/aytugakin/busservice/exception/GlobalExceptionHan
 [bus-service/src/main/java/com/aytugakin/busservice/exception/ResourceNotFoundException.java,2\8\282d2a5ce37d00aca12ebb69913a4ea0aa28120c
 ~
 Nbus-service/src/main/java/com/aytugakin/busservice/exception/ErrorDetails.java,e\1\e17825121fa2dbb792ce320f2d92aa70575b175e
-Å
-Qcar-service/src/main/java/com/aytugakin/carservice/entity/CarFuelConsumption.java,f\b\fbe236c46c1655d7358fdcdca22737e3e28d0638
 è
 _car-service/src/main/java/com/aytugakin/carservice/controller/CarFuelConsumptionController.java,e\3\e3c515efc482b96f9c9d119cb8a4c0b634198cdc
 â
@@ -61,8 +57,6 @@ Ucar-service/src/main/java/com/aytugakin/carservice/controller/dto/AddFuelReques
 Kcar-service/src/main/java/com/aytugakin/carservice/service/dto/FuelDto.java,7\a\7ade1ed5381ba13a9a81b764d6ef78f411a5b8d5
 s
 Ccar-service/src/main/java/com/aytugakin/carservice/entity/Fuel.java,f\a\faf5df97d1a2c9c73f5c82e960bf91a3ae871c07
-è
-_car-service/src/main/java/com/aytugakin/carservice/repository/CarFuelConsumptionRepository.java,b\8\b889a8b90f4d2d83f6bf2e7cf0563a53999089b6
 Å
 Qcar-service/src/main/java/com/aytugakin/carservice/repository/FuelRepository.java,2\b\2b984e2b8e0a8f87e200bcfbcc28f7ee76f3b3fc
 y
@@ -101,10 +95,6 @@ Ktravel-service/src/main/java/com/aytugakin/travelservice/entity/Travel.java,f\
 Ztravel-service/src/main/java/com/aytugakin/travelservice/controller/dto/TravelRequest.java,b\7\b767602b11a3d95543e048a28b4a751e3b98a48e
 ã
 [travel-service/src/main/java/com/aytugakin/travelservice/controller/dto/TravelResponse.java,e\4\e4ddf0b18d708301e6f29c1f1cfe0db18ae41919
-à
-Xcar-service/src/main/java/com/aytugakin/carservice/external/model/TravelBusResponse.java,5\e\5efaaa6bd97b998a0122b1e155bd0e6aed213dd2
-ì
-ccar-service/src/main/java/com/aytugakin/carservice/external/model/TravelCarConsumptionResponse.java,2\c\2cefd00e8cc4e132f039e04d0d5a1f742a8291c0
 é
 ^travel-service/src/main/java/com/aytugakin/travelservice/external/model/TravelBusResponse.java,3\e\3e4cd70d494bdcbaf892d814574216fc6b1b8ce7
 ô
@@ -129,7 +119,3 @@ Utravel-service/src/main/java/com/aytugakin/travelservice/external/model/FuelTyp
 Vtravel-service/src/main/java/com/aytugakin/travelservice/TravelServiceApplication.java,f\f\ff19e1adb0bcec8a97c50d1dd072cd736b271ccb
 ë
 atravel-service/src/main/java/com/aytugakin/travelservice/exception/ResourceNotFoundException.java,b\d\bde3448ba594c8fd1a7ec58de755fd4f30ea6e26
-s
-Cgateway/src/main/java/com/aytugakin/gateway/GatewayApplication.java,f\9\f95b07b8fc43914c3ac717a436a57c7b49058a4c
-~
-Ngateway/src/main/java/com/aytugakin/gateway/controller/FallbackController.java,e\9\e92ab974df0770c397e6861a89a962864cc140ef
