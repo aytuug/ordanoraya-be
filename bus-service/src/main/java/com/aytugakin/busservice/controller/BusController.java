@@ -5,16 +5,18 @@ import com.aytugakin.busservice.controller.dto.TravelBusRequest;
 import com.aytugakin.busservice.controller.dto.TravelBusResponse;
 import com.aytugakin.busservice.service.BusService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/bus")
 public class BusController {
+
+    @Value("${bus.admin.mail}")
+    private String busMessage;
 
     private final BusService busService;
 
@@ -27,4 +29,12 @@ public class BusController {
     public ResponseEntity<TravelBusResponse> getCheapestBus(@RequestBody TravelBusRequest travelBusRequest) {
         return ResponseEntity.ok(busService.getCheapestBus(travelBusRequest));
     }
+
+    @GetMapping("/build-info")
+    public ResponseEntity<String> getBuildInfo() {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(busMessage);
+    }
+
 }
