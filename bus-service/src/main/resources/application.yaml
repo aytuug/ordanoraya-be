@@ -18,3 +18,8 @@ spring:
     import: configserver:http://localhost:9296
 server:
   port: 8081
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
