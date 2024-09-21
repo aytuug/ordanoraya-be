@@ -7,31 +7,7 @@ spring:
     import: configserver:http://localhost:9296
   cloud:
     gateway:
-      routes:
-        - id : bus-service
-          uri: lb://bus-service
-          predicates:
-            - Path=/api/bus/**
-          filters:
-            - name: RequestRateLimiter
-              args:
-                redis-rate-limiter.replenishRate: 1
-                redis-rate-limiter.burstCapacity: 1
-        - id: car-service
-          uri: lb://car-service
-          predicates:
-            - Path=/api/car/**
-          filters:
-            - name: RequestRateLimiter
-              args:
-                redis-rate-limiter.replenishRate: 1
-                redis-rate-limiter.burstCapacity: 1
-        - id: TRAVEL-SERVICE
-          uri: lb://TRAVEL-SERVICE
-          predicates:
-            - Path=/api/travel/**
-          filters:
-            - name: RequestRateLimiter
-              args:
-                redis-rate-limiter.replenishRate: 1
-                redis-rate-limiter.burstCapacity: 1
+      discovery:
+        locator:
+          lower-case-service-id: true
+          enabled: true

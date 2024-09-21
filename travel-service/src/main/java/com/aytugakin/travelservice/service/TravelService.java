@@ -1,6 +1,6 @@
 package com.aytugakin.travelservice.service;
 
-import com.aytugakin.travelservice.TravelRepository;
+import com.aytugakin.travelservice.repository.TravelRepository;
 import com.aytugakin.travelservice.controller.dto.TravelRequest;
 import com.aytugakin.travelservice.controller.dto.TravelResponse;
 import com.aytugakin.travelservice.entity.Travel;
