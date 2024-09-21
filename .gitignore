@@ -1,33 +1,61 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# Maven ile derlenen projeler için
+/target/
+/pom.xml.tag
+/pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# Gradle ile derlenen projeler için
+/build/
+/.gradle
+*.class
+*.jar
+*.war
+*.ear
+!src/main/**/static/
+/build/
 
-### IntelliJ IDEA ###
-.idea
+# IntelliJ IDEA ile ilgili dosyalar
+/.idea/
+/*.iml
 *.iws
-*.iml
+/out/
 *.ipr
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+# Eclipse ile ilgili dosyalar
+/.settings/
+/*.classpath
+/*.project
+/.metadata/
+/bin/
+/tmp/
 
-### VS Code ###
-.vscode/
+# Logs ve Diğer Geçici Dosyalar
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Sisteme özgü dosyalar
+.DS_Store
+Thumbs.db
+*.class
+*.jar
+*.war
+*.ear
+
+# Spring Boot spesifik
+spring.log
+application.properties
+application.yml
+.env
+
+# Test raporları ve diğer geçici dosyalar
+/test-output/
+/surefire-reports/
+/jacoco/
+
+# OS Spesifik
+*.DS_Store
+*.swp
