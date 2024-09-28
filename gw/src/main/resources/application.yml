@@ -11,3 +11,8 @@ spring:
         locator:
           lower-case-service-id: true
           enabled: true
+logging:
+  level:
+    com:
+      aytugakin:
+        gw: DEBUG
