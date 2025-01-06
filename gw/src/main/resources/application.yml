@@ -11,6 +11,19 @@ spring:
         locator:
           lower-case-service-id: true
           enabled: true
+      routes:
+        - id: BUS-SERVICE
+          uri: lb://bus-service
+          predicates:
+            - Path=/api/bus/**
+        - id: CAR-SERVICE
+          uri: lb://car-service
+          predicates:
+            - Path=/api/car/**
+        - id: travel_route
+          uri: lb://travel-service
+          predicates:
+            - Path=/api/travel/**
 logging:
   level:
     com:

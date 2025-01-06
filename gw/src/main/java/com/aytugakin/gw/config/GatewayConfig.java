@@ -1,32 +1,37 @@
 package com.aytugakin.gw.config;
 
+import com.aytugakin.gw.data.RouteEntity;
 import com.aytugakin.gw.filters.AddDateHeaderFilter;
+import com.aytugakin.gw.filters.HeaderOperationFilter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@RequiredArgsConstructor
 public class GatewayConfig {
 
     private final AddDateHeaderFilter addDateHeaderFilter;
-
-    public GatewayConfig(AddDateHeaderFilter addDateHeaderFilter) {
-        this.addDateHeaderFilter = addDateHeaderFilter;
-    }
+    private final RouteEntity routeConfiguration;
+    private final HeaderOperationFilter headerOperationFilter;
 
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
-        return builder.routes()
-                .route("bus_route", r -> r.path("/api/bus/**")
-                        .filters(f -> f.filter(addDateHeaderFilter))
-                        .uri("lb://bus-service"))
-                .route("car_route", r -> r.path("/api/car/**")
-                        .filters(f -> f.filter(addDateHeaderFilter))
-                        .uri("lb://car-service"))
-                .route("travel_route", r -> r.path("/api/travel/**")
-                        .filters(f -> f.filter(addDateHeaderFilter))
-                        .uri("lb://travel-service"))
-                .build();
+        RouteLocatorBuilder.Builder routes = builder.routes();
+
+        for (RouteEntity.RouteConfig route : routeConfiguration.getRoutes()) {
+            routes.route(route.getId(), r -> r.path(route.getPredicates().get(0).replaceFirst("Path=", ""))
+                    .filters(f -> f
+                            .filter(addDateHeaderFilter)
+                            .filter(headerOperationFilter.apply(new HeaderOperationFilter.Config()))
+                            .addResponseHeader("operation-result", "result-200-gw")
+                    )
+                    .uri(route.getUri()));
+        }
+
+        return routes.build();
     }
+
 }
