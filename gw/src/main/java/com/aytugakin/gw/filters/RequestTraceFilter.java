@@ -26,12 +26,12 @@ public class RequestTraceFilter implements GlobalFilter {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         HttpHeaders requestHeaders = exchange.getRequest().getHeaders();
         if (isCorrelationIdPresent(requestHeaders)) {
-            logger.debug("ordanoraya-correlation-id found in RequestTraceFilter : {}",
+            logger.debug("ordanoraya-request-id found in RequestTraceFilter : {}",
                     filterUtility.getCorrelationId(requestHeaders));
         } else {
             String correlationID = generateCorrelationId();
             exchange = filterUtility.setCorrelationId(exchange, correlationID);
-            logger.debug("ordanoraya-correlation-id generated in RequestTraceFilter : {}", correlationID);
+            logger.debug("ordanoraya-request-id generated in RequestTraceFilter : {}", correlationID);
         }
         return chain.filter(exchange);
     }

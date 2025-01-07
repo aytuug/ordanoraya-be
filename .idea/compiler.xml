@@ -24,6 +24,7 @@
         <module name="travel-service" />
         <module name="car-service" />
         <module name="bus-service" />
+        <module name="spider" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -40,6 +41,7 @@
       <module name="gateway" options="-parameters" />
       <module name="gw" options="-parameters" />
       <module name="service-registry" options="-parameters" />
+      <module name="spider" options="-parameters" />
       <module name="travel-service" options="-parameters" />
     </option>
   </component>

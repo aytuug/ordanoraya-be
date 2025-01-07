@@ -9,11 +9,11 @@ import java.util.List;
 @Component
 public class FilterUtility {
 
-    public static final String CORRELATION_ID = "ordanoraya-correlation-id";
+    public static final String REQUEST_ID = "ordanoraya-request-id";
 
     public String getCorrelationId(HttpHeaders requestHeaders) {
-        if (requestHeaders.get(CORRELATION_ID) != null) {
-            List<String> requestHeaderList = requestHeaders.get(CORRELATION_ID);
+        if (requestHeaders.get(REQUEST_ID) != null) {
+            List<String> requestHeaderList = requestHeaders.get(REQUEST_ID);
             return requestHeaderList.stream().findFirst().get();
         } else {
             return null;
@@ -25,7 +25,7 @@ public class FilterUtility {
     }
 
     public ServerWebExchange setCorrelationId(ServerWebExchange exchange, String correlationId) {
-        return this.setRequestHeader(exchange, CORRELATION_ID, correlationId);
+        return this.setRequestHeader(exchange, REQUEST_ID, correlationId);
     }
 
 }
