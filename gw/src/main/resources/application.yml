@@ -20,10 +20,15 @@ spring:
           uri: lb://car-service
           predicates:
             - Path=/api/car/**
-        - id: travel_route
+        - id: TRAVEL-SERVICE
           uri: lb://travel-service
           predicates:
             - Path=/api/travel/**
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: "http://localhost:7080/realms/master/protocol/openid-connect/certs"
 logging:
   level:
     com:
